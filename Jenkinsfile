@@ -28,7 +28,8 @@ pipeline {
   }
   post {
         always {
-            junit 'dist/pytest_results/**/*.xml'
+            junit allowEmptyResults: true, testResults:'dist/pytest_results/**/*.xml'
+            publishCoverage adapters: [coberturaAdapter('dist/coverage/**/*.xml'), jacocoAdapter('**/target/site/jacoco/jacoco.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
         }
     }
 }
