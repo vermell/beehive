@@ -9,7 +9,9 @@ pipeline {
     stage('Code Style') {
       steps {
         echo 'Checking Code Style'
-        sh './pants lint ::'
+        sh '''poetry install
+poetry shell
+./pants lint ::'''
       }
     }
 
