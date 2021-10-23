@@ -15,7 +15,7 @@ pipeline {
 
     stage('UnitTesting') {
       steps {
-        sh './pants test --use-coverage --coverage-py-report="xml"::'
+        sh './pants test --use-coverage --coverage-py-report="xml" ::'
       }
     }
 
