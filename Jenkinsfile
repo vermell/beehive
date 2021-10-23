@@ -29,6 +29,7 @@ pipeline {
     stage('Deploy Infrastructure') {
       steps {
         echo 'Update/Network Overlay-Network'
+        sh 'docker network inspect beehive_dev_network >/dev/null 2>&1 || docker network create -d overlay  beehive_dev_network'
       }
     }
 

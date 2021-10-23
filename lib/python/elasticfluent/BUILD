@@ -12,3 +12,8 @@ python_tests(
     name = "test_elasticfluent",
     sources = ["test/**/*.py"],
 )
+
+docker_image(
+    name="helloworld",
+    dependencies=[":pex_binary"],
+)
