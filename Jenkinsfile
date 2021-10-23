@@ -29,7 +29,7 @@ pipeline {
   post {
         always {
             junit allowEmptyResults: true, testResults:'dist/pytest_results/**/*.xml'
-            publishCoverage adapters: [coberturaAdapter('dist/coverage/**/*.xml'), jacocoAdapter('**/target/site/jacoco/jacoco.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
+            publishCoverage adapters: [coberturaAdapter('dist/coverage/python/coverage.xml'), jacocoAdapter('**/target/site/jacoco/jacoco.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
         }
     }
 }
