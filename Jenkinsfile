@@ -28,7 +28,7 @@ pipeline {
   }
   post {
         always {
-            junit 'dist/coverage/**/*.xml'
+            junit 'dist/pytest_results/**/*.xml'
         }
     }
 }
