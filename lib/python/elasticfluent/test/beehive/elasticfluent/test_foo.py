@@ -1,2 +1,4 @@
+from beehive.elasticfluent.foo import foo
+
 def test_should_add_ten():
-    assert foo(20) == 10
+    assert foo(10) == 20

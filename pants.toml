@@ -2,5 +2,12 @@
 pants_version = "2.7.0"
 backend_packages = ["pants.backend.python"]
 
+[source]
+# The Python source root is the repo root. See https://www.pantsbuild.org/docs/source-roots.
+marker_filenames = ["setup.py"]
+#root_patterns = [
+#    "elasticfluent",
+#]
+
 [anonymous-telemetry]
 enabled = false
