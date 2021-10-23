@@ -6,6 +6,10 @@ authors = ["Michael Ullrich <mullrichael@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pylint = "^2.11.1"
+black = "^21.9b0"
+mypy = "^0.910"
+flake8 = "^4.0.1"
 
 [tool.poetry.dev-dependencies]
 
