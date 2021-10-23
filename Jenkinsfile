@@ -13,5 +13,17 @@ pipeline {
       }
     }
 
+    stage('UnitTesting') {
+      steps {
+        sh './pants test --use-coverage --coverage-py-report="xml"::'
+      }
+    }
+
+    stage('Packaging') {
+      steps {
+        sh "./pants package ::"
+      }
+    }
+
   }
 }
