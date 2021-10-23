@@ -2,14 +2,15 @@ pipeline {
   agent any
   stages {
     stage('Setup Environment') {
-            steps {
-                sh "curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3"
-                sh "$HOME/.poetry/bin/poetry install --no-root"
-            }
+      steps {
+        sh 'curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3'
+        sh "$HOME/.poetry/bin/poetry install --no-root"
+      }
     }
+
     stage('Code Style') {
       steps {
-        sh "./pants lint ::"
+        sh './pants lint ::'
       }
     }
 
@@ -21,15 +22,22 @@ pipeline {
 
     stage('Packaging') {
       steps {
-        sh "./pants package ::"
+        sh './pants package ::'
+      }
+    }
+
+    stage('Deploy Infrastructure') {
+      steps {
+        echo 'Update/Network Overlay-Network'
       }
     }
 
   }
   post {
-        always {
-            junit allowEmptyResults: true, testResults:'dist/pytest_results/**/*.xml'
-            publishCoverage adapters: [coberturaAdapter('dist/coverage/python/coverage.xml'), jacocoAdapter('**/target/site/jacoco/jacoco.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
-        }
+    always {
+      junit(allowEmptyResults: true, testResults: 'dist/pytest_results/**/*.xml')
+      publishCoverage(adapters: [coberturaAdapter('dist/coverage/python/coverage.xml'), jacocoAdapter('**/target/site/jacoco/jacoco.xml')], sourceFileResolver: sourceFiles('NEVER_STORE'))
     }
+
+  }
 }
