@@ -8,7 +8,7 @@ pipeline {
             }
     stage('Code Style') {
       steps {
-        sh './pants lint ::'
+        sh "./pants lint ::"
       }
     }
 
