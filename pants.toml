@@ -1,2 +1,6 @@
 [GLOBAL]
 pants_version = "2.7.0"
+backend_packages = ["pants.backend.python"]
+
+[anonymous-telemetry]
+enabled = false
