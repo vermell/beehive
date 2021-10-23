@@ -26,4 +26,9 @@ pipeline {
     }
 
   }
+  post {
+        always {
+            junit 'dist/coverage/**/*.xml'
+        }
+    }
 }
