@@ -5,9 +5,26 @@ services:
     networks:
       - proxy
       - agent_network
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - proxy
+    restart: unless-stopped
 
 networks:
   proxy:
     external: true
   agent_network:
     external: true
+
+volumes:
+    postgres:
