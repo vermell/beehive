@@ -2,6 +2,9 @@ version: "3.7"
 services:
   redis:
     image: "redis:alpine"
+    labels:
+      com.beehive.project: "${PROJECT}"
+      com.beehive.artisenv: "${ENVIRONMENT}"
     networks:
       - proxy
       - agent_network
@@ -9,6 +12,7 @@ services:
     container_name: postgres_container
     image: postgres
     environment:
+      ENVIRONMENT: ${ENVIRONMENT}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
       PGDATA: /data/postgres
