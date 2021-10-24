@@ -4,7 +4,7 @@ services:
     image: "redis:alpine"
     labels:
       com.beehive.project: "${PROJECT}"
-      com.beehive.artisenv: "${ENVIRONMENT}"
+      com.beehive.env: "${ENVIRONMENT}"
     networks:
       - proxy
       - agent_network
