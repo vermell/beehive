@@ -80,7 +80,7 @@ services:
     environment:
       TZ: 'US/Eastern'
       SLEEP_TIME: '5m'
-      FILTER_SERVICES: 'label=com.beehive.project'
+      FILTER_SERVICES: 'label=com.beehive.pull_updates'
       WITH_INSECURE_REGISTRY: 'true'
       WITH_REGISTRY_AUTH: 'true'
       VERBOSE: 'true'

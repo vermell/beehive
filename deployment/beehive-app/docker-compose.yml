@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   helloworld:
-    image: "ghcr.io/vermell/helloworld:latest"
+    image: "registry.technologies.solactive.com/artis/fts-api"
     networks:
       - proxy
       - agent_network
@@ -9,6 +9,7 @@ services:
       labels:
         com.beehive.project: "${PROJECT}"
         com.beehive.environment: "${ENVIRONMENT}"
+        com.beehive.pull_updates: "${ENVIRONMENT}"
   redis:
     image: "redis:alpine"
     networks:
