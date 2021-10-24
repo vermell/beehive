@@ -1,5 +1,14 @@
 version: "3.7"
 services:
+  helloworld:
+    image: "helloworld:latest"
+    networks:
+      - proxy
+      - agent_network
+    deploy:
+      labels:
+        com.beehive.project: "${PROJECT}"
+        com.beehive.environment: "${ENVIRONMENT}"
   redis:
     image: "redis:alpine"
     networks:
