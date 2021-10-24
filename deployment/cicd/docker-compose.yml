@@ -75,6 +75,21 @@ services:
       placement:
         constraints: [node.role == manager]
 
+  shepherd:
+    image: mazzolino/shepherd
+    environment:
+      TZ: 'US/Eastern'
+      SLEEP_TIME: '5m'
+      FILTER_SERVICES: 'label=com.beehive.project'
+      WITH_INSECURE_REGISTRY: 'true'
+      WITH_REGISTRY_AUTH: 'true'
+      VERBOSE: 'true'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
 
 networks:
   proxy:

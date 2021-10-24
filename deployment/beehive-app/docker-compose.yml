@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   helloworld:
-    image: "helloworld:latest"
+    image: "ghcr.io/vermell/helloworld:latest"
     networks:
       - proxy
       - agent_network
