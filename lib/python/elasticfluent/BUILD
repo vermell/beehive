@@ -7,7 +7,7 @@ pex_binary(
     name = "pex_binary",
     entry_point = "src/beehive/elasticfluent/__main__.py",
 )
-
+# This line should be too long This line should be too long This line should be too long This line should be too long
 python_tests(
     name = "test_elasticfluent",
     sources = ["test/**/*.py"],
